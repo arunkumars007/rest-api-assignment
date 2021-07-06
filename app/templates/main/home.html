@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+  <h2>Math Operations</h2>
+  <br/>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Add</a></li>
+    <li><a data-toggle="tab" href="#menu1">List</a></li>
+    <li><a data-toggle="tab" href="#menu2">Perform</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>Add Function</h3><br/>
+      <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+          <label>Select Type : </label>
+          <select class="form-control" id="sel1">
+            <option>Addition</option>
+            <option>Subtraction</option>
+            <option>Multiplication</option>
+            <option>Division</option>
+            <option>Square Root</option>
+            <option>Cube Root</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" onclick="handleInsert(event)">Submit</button>
+      </form>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>All Functions</h3><br/>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Function Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody id="tData">
+        </tbody>
+      </table>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>Perform Function</h3><br/>
+      <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+          <label>Select Type : </label>
+          <select class="form-control" id="sel2">
+          </select>
+        </div>
+        <div class="form-group mx-sm-2 mb-1">
+          <label> X : </label>
+          <input type="number" id="x-val" class="form-control" placeholder="x value" aria-label="X" aria-describedby="basic-addon1">
+        </div>
+        <div class="form-group mx-sm-2 mb-1">
+          <label> Y : </label>
+          <input type="number" id="y-val" class="form-control" placeholder="y value" aria-label="Y" aria-describedby="basic-addon2">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" onclick="handleOperation(event)">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
