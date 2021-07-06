@@ -27,8 +27,16 @@ var functionsList = [];
         opt.innerHTML = functionsList[i];
         selElement.appendChild(opt);
       }
+
+      var defaultSel = $("#sel2 option:selected").text();
+      if(['Square Root', 'Cube Root'].includes(defaultSel)){
+        $("#y-val").prop('disabled', true);
+      }else{
+        $("#y-val").prop('disabled', false);
+      }
     }
   });
+
 })();
 
 function handleOperation(event) {
@@ -93,3 +101,11 @@ function handleDelete(event, type_id) {
     alert("Function deletion event got cancelled...")
   }
 }
+
+$("#sel2").on('change', function(e){
+  if(['Square Root', 'Cube Root'].includes(this.value)){
+    $("#y-val").prop('disabled', true);
+  }else{
+    $("#y-val").prop('disabled', false);
+  }
+});
